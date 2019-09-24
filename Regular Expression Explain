@@ -1,0 +1,47 @@
+.......................................................................................................................
+                                        What is Regular expression?
+.......................................................................................................................
+
+Regular Expression is a sequence of charecters to find,replace and search the pattern in strings or files.
+Regular expression itself is a programming language.
+In Python re module help with regular expression.
+          Ex: import re
+Most common uses of Regular Expression:
+
+1. Search a string
+2. Find a string
+3. Splitting a string
+4. Replace a string
+........................................................................................................................
+                                        Various method of remodule
+........................................................................................................................
+
+1. re.match(): match a regular expression pattern to the beginning of a string
+2. re.search() : Search a string for the presence of a pattern.
+3. re.findall(): Find all occurrences of a pattern in a string.
+4. re.split(): Split a string by the occurrences of a pattern.
+5. re.sub(): Substitute occurrences of a pattern found in a string.
+6. re.compile(): Compile a pattern into a RegexObject.
+
+1. Search a string:
+
+Ex1: s="Hello welcome to python and python is good"
+    search_word=re.search(r"welcome",s)
+    print(search.group(0))
+o/p- welcome
+
+Ex2: s="Hello welcome to python and python is good"
+     Match=re.match(r'Hello',s)
+     print(Match.group())     #o/p-Hello
+     print(Match.start())     #o/p-0
+     print(Match.end())       #o/p-5
+
+2. Find a string:
+
+Ex1: import re
+     pattern=re.compile('iProgram')
+     result=pattern.findall('Welcome to iProgram. Its fun to learn python on iProgram')
+     print(result)
+     
+o/p-> ['iProgram', 'iProgram']
+
