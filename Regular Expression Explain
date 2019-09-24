@@ -24,19 +24,23 @@ Most common uses of Regular Expression:
 6. re.compile(): Compile a pattern into a RegexObject.
 
 1. Search a string:
+----------------------------
 
-Ex1: s="Hello welcome to python and python is good"
+Ex1:import re
+    s="Hello welcome to python and python is good"
     search_word=re.search(r"welcome",s)
     print(search.group(0))
 o/p- welcome
 
-Ex2: s="Hello welcome to python and python is good"
+Ex2: import re
+     s="Hello welcome to python and python is good"
      Match=re.match(r'Hello',s)
      print(Match.group())     #o/p-Hello
      print(Match.start())     #o/p-0
      print(Match.end())       #o/p-5
 
 2. Find a string:
+----------------------------
 
 Ex1: import re
      pattern=re.compile('iProgram')
@@ -45,3 +49,126 @@ Ex1: import re
      
 o/p-> ['iProgram', 'iProgram']
 
+3. Spliting a string:
+----------------------------
+
+Ex1: import re
+     s="Hello welcome to python and python is good"
+     result=re.split('o',s)
+     print(result)
+O/P-> ['Hell', ' welc', 'me t', ' pyth', 'n and pyth', 'n is g', '', 'd']
+
+Ex2: import re
+     s="Hello welcome to python and python is good"
+     result=re.split('o',s,maxsplit=2)
+     print(result)
+O/P-> ['Hell', ' welc', 'me to python and python is good']
+
+4. Replace a string:
+---------------------------
+
+Ex1: 
+     s="Hello welcome to python and python is good"
+     replace_string=s.replace('python','java')
+     print(replace_string)
+     
+Ex2: Using regular expression
+     import re
+     s = "Hello Everyone welcome to xProgram. Fun to learn python on xProgram"
+     result=re.sub('xProgram','iProgram',s)
+     print(result)
+===================================================================================================
+                                        Special charecters
+===================================================================================================
+
+^-----------------------------Strating
+
+$----------------------------Ending
+
+[ ]-----------------------Matches any single character in brackets
+
+[^ ]---------------------Not Match any single Character in brackets
+
+\w-----------------------word (a-zA-Z0-9_)
+
+\W-----------------------Non word(.!*%@)
+
+\s------------------------Matches Whitespaces  equivalent to [\t\n\r]
+
+\S-----------------------Not Match Whitespaces
+
+\d-----------------------Matches digit
+
+\D---------------------Not Match digit
+
+\A---------------------Match begining of String
+
+\z---------------------Match ending of String
+
+\b--------------------Match Boundries 
+
+\n--------------------Match Newline
+
+\t--------------------Match tab
+=======================================================================================================
+                                        Programs
+=======================================================================================================
+Ex1: import re
+     list='567-891-1'
+     pattern=re.compile(r'(\d\d\d)-(\d\d\d-\d)')
+     result=pattern.search(list)
+     print(result.group(0))
+O/P-> 567-891-1
+.......................................................................................................
+Ex2: Find the digit value from the string?
+     import re
+     s='gro34u45p'
+     match=re.sub(r'\D','',s)
+     print(match)
+O/P->3445
+.......................................................................................................
+Ex3: WAP to set strong password for Email
+
+import re
+
+email_id=re.compile(r'\w+[.]\w+@\w+[.]\w+')
+capregex=re.compile(r'.*[A-Z].*')
+lowregex=re.compile(r'.*[a-z].*')
+digitregex=re.compile(r'.*\d.*')
+def checkemailid(email):
+    if email_id.search(email):
+        print("email:correct pattern")
+
+    else:
+        print("parameter is missing from email")
+
+def checkpassword(text):
+    if capregex.search(text) and lowregex.search(text) and digitregex.search(text):
+        print("check the password pattern")
+        if len(pattern)<8:
+            print("password need to be at least 8 charecter")
+        else:
+            print("Password satisfies the length")
+
+    else:
+        print("it should match with password pattern")
+
+
+email_pattern='satya.behera@gmail.com'
+checkemailid(email_pattern)
+
+pattern="Kelvin@123"
+checkpassword(pattern)
+..............................................................................................................
+EX4: Find ab position from this program
+
+s='abaabaabaa'
+matcher=re.finditer('ab',s)
+for match in matcher:
+    print(match.start(),'.....',match.group(0))
+    
+O/P-> 0 ..... ab
+      3 ..... ab
+      6 ..... ab
+      
+    
