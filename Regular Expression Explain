@@ -189,6 +189,14 @@ match_word(" The quick brown fox jumps over the lazy dog")
 
 O/P->matched
      Not matched
-      
-      
+.................................................................................................................      
+Ex6: Write a python program to check which email account you are using(like gmail,yahoo etc..)
+
+import re
+pattern=re.compile(r'(?<=@)\w+')
+a = pattern.search('satya@gmail.com')
+print(a.group(0))
+
+O/P-> gmail
+
     
