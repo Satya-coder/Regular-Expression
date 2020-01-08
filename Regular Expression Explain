@@ -13,7 +13,7 @@ Most common uses of Regular Expression:
 3. Splitting a string
 4. Replace a string
 ........................................................................................................................
-                                        Various method of remodule
+                                        Various method of re module
 ........................................................................................................................
 
 1. re.match(): match a regular expression pattern to the beginning of a string
